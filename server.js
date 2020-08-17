@@ -21,7 +21,4 @@ app.get('/profile', (req, res) => {
 });
 app.listen(3000);
 
-git push origin -- delete <branch>
-git branch -- delete <branch>
-git branch -- delete -- remote <remote>/<branch>
 
