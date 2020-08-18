@@ -1,8 +1,10 @@
 const express = require('express');
 const { restart } = require('nodemon');
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 const database ={
     learners: [
@@ -34,7 +36,7 @@ const database ={
 }
 
 app.get('/', (req, res) => {
-    res.send('connection to server.js is working');
+    res.send('Connected to backend successfully');
 })
 
 app.post('/signin', (req, res) => {
@@ -45,9 +47,6 @@ app.post('/signin', (req, res) => {
         res.json('learner record successfully created');
     }
 })
-
-
-
 
 app.listen(3000, ()=> {
     console.log('app is running on port 3000');
