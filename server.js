@@ -1,5 +1,4 @@
 const express = require('express');
-const { restart } = require('nodemon');
 const cors = require('cors');
 
 const app = express();
@@ -45,7 +44,7 @@ app.post('/register', (req, res) => {
     }
     else {
         res.json('learner record successfully created');
-        console.log(request.body);
+        console.log(req.body.mobile);
     }
 })
 
