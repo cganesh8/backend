@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-const database ={
+const database = {
     learners: [
         {
             mobile: '0412886730',
@@ -20,18 +20,18 @@ const database ={
             dtcenter: 'Dandenong',
             source: 'TM2D'
         },
-            {
-                mobile: '0123456789',
-                name: 'test',
-                email: 'test@gmail.com',
-                enrolled: new Date(),
-                suburb: 'Bundoora',
-                postcode: '3083',
-                dtdate: '30/11/2020',
-                dttime: '3.30pm',
-                dtcenter: 'Bundoora',
-                source: 'other'
-            }
+        {
+            mobile: '0123456789',
+            name: 'test',
+            email: 'test@gmail.com',
+            enrolled: new Date(),
+            suburb: 'Bundoora',
+            postcode: '3083',
+            dtdate: '30/11/2020',
+            dttime: '3.30pm',
+            dtcenter: 'Bundoora',
+            source: 'other'
+        }
     ]
 }
 
@@ -39,19 +39,20 @@ app.get('/', (req, res) => {
     res.send('Connected to backend successfully');
 })
 
-app.post('/signin', (req, res) => {
+app.post('/register', (req, res) => {
     if (req.body.mobile === database.learners[0].mobile) {
         res.json('learner record exists in database');
     }
     else {
         res.json('learner record successfully created');
+        console.log(request.body);
     }
 })
 
-app.listen(3000, ()=> {
+app.listen(3000, () => {
     console.log('app is running on port 3000');
 });
-    
+
 
 
 
