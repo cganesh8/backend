@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 app.post('/register', (req, res) => {
     if (req.body.mobile === database.learners[0].mobile) {
-        res.status(400).json('learner record exists in database');
+        res.json('learner record exists in database');
     }
     else {
         res.json('learner record successfully created');
