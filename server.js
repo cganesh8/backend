@@ -38,6 +38,18 @@ app.get('/', (req, res) => {
     res.send('Connected to backend successfully');
 })
 
+app.post('/login', (req, res) => {
+    if (req.body.mobile === database.learners[0].mobile) {
+        //res.json(database.learners[0].mobile);
+        res.json('LoginOK');
+    }
+    else {
+        //res.json('no learner in database');
+        //console.log(req.body.mobile);
+        res.json('LoginNotOK');
+    }
+})
+
 app.post('/register', (req, res) => {
     if (req.body.mobile === database.learners[0].mobile) {
         res.json('learner record exists in database');
